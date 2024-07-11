@@ -140,7 +140,7 @@ function App() {
   ];
 
   return (
-    <Container sx={{ m: 0, p: 0, width: '100%' }}>
+    <Container sx={{ my: 0, p: 0, width: '100%' }}>
       <Box>
         <Typography variant="h6" align="left">
           <b>ARA JEWELLERY LLC</b>
@@ -155,7 +155,6 @@ function App() {
           arajewellltd@gmail.com
         </Typography>
         <Divider sx={{ my: 1, border: "1px solid" }} />
-
         <Paper elevation={10} sx={{ mb: 1, width: "100%", pr: 8 }}>
           <Typography variant="body2">
             <b>
@@ -168,7 +167,6 @@ function App() {
             </b>
           </Typography>
         </Paper>
-
         <Box sx={{ ml: 1 }}>
           <Paper
             elevation={10}
@@ -195,9 +193,7 @@ function App() {
               }}
             >
               <Typography variant="body2">
-                <i>
-                  CUSTOMER --{">"} {data.fullLegalName} - (CUSTOMER)
-                </i>
+                <i>CUSTOMER --{">"} {data.fullLegalName} - (CUSTOMER)</i>
               </Typography>
             </Paper>
             <TableContainer>
@@ -225,7 +221,6 @@ function App() {
                 </TableBody>
               </Table>
             </TableContainer>
-
             {rows.shareholder.map((shareholder, idx) => (
               <div>
                 <Paper
@@ -352,7 +347,6 @@ function App() {
             </Box>
           </Box>
         </Box>
-
         <Box sx={{ mt: 1, ml: 1 }}>
           <Paper
             elevation={10}
