@@ -79,6 +79,31 @@ const data = {
       isAuthorizedSignatory: false,
       _id: "668f95f4e8ed886eea89ada2",
     },
+    {
+      idDoc: {
+        type: "ID",
+        issueCountry: "Albania",
+        number: "665+6565",
+        issueDate: "2024-12-31T00:00:00.000Z",
+        expiryDate: "2023-12-31T00:00:00.000Z",
+      },
+      contactInfo: {
+        contactType: "Telephone",
+        contactCountry: "Austria",
+        contactNumber: "2013565",
+      },
+      fullLegalName: "kjsdkjdfhk",
+      doB: "2024-12-31T00:00:00.000Z",
+      residentialStatus: "Non Resident",
+      occupation: "Occupation1",
+      dualNationality: "No",
+      percentShares: "22",
+      ubo: true,
+      uboReason: "SHARE HOLDING",
+      uboDate: "2024-07-01T00:00:00.000Z",
+      isAuthorizedSignatory: false,
+      _id: "668f95f4e8ed886eea89ada2",
+    },
   ],
   addedDate: "1901-01-01T00:00:00.000Z",
   lastModified: "1901-01-01T00:00:00.000Z",
@@ -106,16 +131,16 @@ const rows = {
     trade_License_No: createData(data.TradeLicenseInfo.tradeLicenseNo, 2),
     jurisdiction: createData(data.jurisdiction, 1),
   },
-  shareholder: {
-    name: "MEHTA DISHANT VIPULKUMAR",
-    dual_Nationality: createData("NO", 1),
-    nationality: createData("INDIA", 2),
-    pep: createData("NO", 1),
-    source_Of_Funds: createData("Business Proceeds", 2),
-    occupation: createData("GOLD AND PRECIOUS METAL CASTING", 3),
-    country_Of_Residence: createData("UNITED ARAB EMIRATES", 2),
-    full_Name_Sanction: createData("MEHTA DISHANT VIPULKUMAR", 1),
-  },
+  shareholder: data.shareHolders.map((shareholder, index) => ({
+    name: shareholder.fullLegalName,
+    dual_Nationality: createData(shareholder.dualNationality, 1),
+    nationality: createData(shareholder.contactInfo.contactCountry, 2),
+    document_Type: createData(shareholder.idDoc.type, 1),
+    source_Of_Funds: createData(shareholder.uboReason, 2),
+    occupation: createData(shareholder.occupation, 3),
+    country_Of_Residence: createData(shareholder.idDoc.issueCountry, 2),
+    full_Name_Sanction: createData(shareholder.fullLegalName, 1),
+  })),
 };
 
 function App() {
@@ -227,47 +252,53 @@ function App() {
               </Table>
             </TableContainer>
 
-            <Paper
-              elevation={10}
-              sx={{
-                my: 2,
-                width: "55%",
-                pr: 8,
-                color: "darkblue",
-                background: "lightgrey",
-              }}
-            >
-              <Typography>
-                <i>
-                  SHAREHOLDER [NATURAL PERSONS] --{">"} {data.shareHolders.fullLegalName}{" "} - (SHAREHOLDER [NATURAL PERSONS])
-                </i>
-              </Typography>
-            </Paper>
-            <TableContainer>
-              <Table size="small">
-                <TableHead>
-                  <TableRow sx={{ background: "rgb(240, 240, 240)" }}>
-                    <TableCell>RBA TYPE</TableCell>
-                    <TableCell>RBA FIELD</TableCell>
-                    <TableCell align="right">RISK</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {Object.entries(rows.shareholder).map(
-                    ([key, value], index) =>
-                      key !== "name" && (
-                        <TableRow key={index}>
-                          <TableCell>
-                            {key.replace(/_/g, " ").toUpperCase()}
-                          </TableCell>
-                          <TableCell>{value.field}</TableCell>
-                          <TableCell align="right">{value.risk}</TableCell>
-                        </TableRow>
-                      )
-                  )}
-                </TableBody>
-              </Table>
-            </TableContainer>
+            {rows.shareholder.map((shareholder, idx) => (
+              <div>
+                <Paper
+                  elevation={10}
+                  sx={{
+                    my: 2,
+                    width: "55%",
+                    pr: 8,
+                    color: "darkblue",
+                    background: "lightgrey",
+                  }}
+                >
+                  <Typography>
+                    <i>
+                      SHAREHOLDER [NATURAL PERSONS] --{">"} {rows.shareholder[0].name}{" "} - (SHAREHOLDER [NATURAL PERSONS])
+                    </i>
+                  </Typography>
+                </Paper>
+                <TableContainer>
+                  <Table size="small">
+                    <TableHead>
+                      <TableRow sx={{ background: "rgb(240, 240, 240)" }}>
+                        <TableCell>RBA TYPE</TableCell>
+                        <TableCell>RBA FIELD</TableCell>
+                        <TableCell align="right">RISK</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      <React.Fragment key={idx}>
+                        {Object.entries(shareholder).map(
+                          ([key, value], index) =>
+                            key !== "name" && (
+                              <TableRow key={index}>
+                                <TableCell>
+                                  {key.replace(/_/g, " ").toUpperCase()}
+                                </TableCell>
+                                <TableCell>{value.field}</TableCell>
+                                <TableCell align="right">{value.risk}</TableCell>
+                              </TableRow>
+                            )
+                        )}
+                      </React.Fragment>
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              </div>
+            ))}
             <Box
               display="flex"
               flexDirection="row"
