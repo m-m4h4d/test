@@ -17,9 +17,9 @@ const data = {
   TradeLicenseInfo: {
     businessActivity: "Accounting",
     tradeLicenseNo: "123456",
-    countryofIncorporation: "Argentina",
+    countryOfIncorporation: "Argentina",
     licensingAuthority: "qwwqe",
-    incoroprationDate: "2024-07-11T00:00:00.000Z",
+    incorporationDate: "2024-07-11T00:00:00.000Z",
     licenseExpiry: "2024-07-12T00:00:00.000Z",
   },
   contactInfo: {
@@ -39,16 +39,16 @@ const data = {
     currency: "usd",
     yearOfRelationship: "2109",
     branch: "Islamabad",
-    anualBusiness: "200000",
+    annualBusiness: "200000",
     totalShareCapital: "100000",
     totalShareHolderEquity: "100000",
     totalAssets: "100000",
-    totalAnualSales: "10000",
+    totalAnnualSales: "10000",
   },
   _id: "668f95f4e8ed886eea89ada1",
   fullLegalName: "New Customer",
   riskProfile: "CRP Pending",
-  registeredAddress: "Refistered Address",
+  registeredAddress: "Registered Address",
   businessAddress: "Business address ",
   taxNo: "87687686",
   jurisdiction: "FREE ZONE",
@@ -95,19 +95,16 @@ function createData(field, risk) {
 const rows = {
   customer: {
     name: "ASHIRWAD JEWELLERY TRADING L.L.C",
-    legal_Name_Sanction: createData("ASHIRWAD JEWELLERY TRADING L.L.C", 1), //data.fullLegalName
-    country_Of_Incorporation: createData("UNITED ARAB EMIRATES", 2), //data.TradeLicenseInfo.countryofIncorporation
+    legal_Name_Sanction: createData(data.fullLegalName, 1), //data.fullLegalName
+    country_Of_Incorporation: createData(data.TradeLicenseInfo.countryOfIncorporation, 2), //data.TradeLicenseInfo.countryofIncorporation
     operation_Countries: createData("UNITED ARAB EMIRATES", 2), //NA
     countries_Source_Of_Funds: createData("UNITED ARAB EMIRATES", 2), //na
-    business_Activity: createData(
-      "NON-MANUFACTURED PRECIOUS METAL TRADING, PEARLS AND PRECIOUS STONE",
-      3
-    ), //data.TradeLicenseInfo.businessActivity
+    business_Activity: createData("NON-MANUFACTURED PRECIOUS METAL TRADING, PEARLS AND PRECIOUS STONE", 3), //data.TradeLicenseInfo.businessActivity
     source_Of_Funds: createData("Business Proceeds", 2),
     license_Type: createData("COMMERCIAL License", 1),
     customer_Type: createData("LEGAL ENTITIES", 1),
     license_Category: createData("LLC", 2),
-    jurisdiction: createData("MAIN LAND", 1),
+    jurisdiction: createData(data.jurisdiction, 1),
   },
   shareholder: {
     name: "MEHTA DISHANT VIPULKUMAR",
@@ -122,7 +119,7 @@ const rows = {
 };
 
 function App() {
-  const data = {
+  const user = {
     customer: {
       uid: 1330000081,
       name: "ASHIRWAD JEWELLERY TRADING L.L.C", //data.
@@ -161,10 +158,10 @@ function App() {
           <Typography variant="h6">
             <b>
               <i>
-                CUSTOMER DETAILS ={">"} UID : {data.customer.uid} | NAME :{" "}
-                {data.customer.name} | DATE OF INCORPORATION :{" "}
-                {data.customer.dateOfIncorporation} | COUNTRY OF INCORPORATION :{" "}
-                {data.customer.countryOfIncorporation}
+                CUSTOMER DETAILS ={">"} UID : {user.customer.uid} | NAME :{" "}
+                {user.customer.name} | DATE OF INCORPORATION :{" "}
+                {user.customer.dateOfIncorporation} | COUNTRY OF INCORPORATION :{" "}
+                {user.customer.countryOfIncorporation}
               </i>
             </b>
           </Typography>
@@ -200,7 +197,7 @@ function App() {
             >
               <Typography>
                 <i>
-                  CUSTOMER --{">"} {rows.customer.name} - (CUSTOMER)
+                  CUSTOMER --{">"} {data.fullLegalName} - (CUSTOMER)
                 </i>
               </Typography>
             </Paper>
@@ -242,7 +239,7 @@ function App() {
             >
               <Typography>
                 <i>
-                  SHAREHOLDER [NATURAL PERSONS] --{">"} {rows.shareholder.name}{" "}
+                  SHAREHOLDER [NATURAL PERSONS] --{">"} {data.shareHolders.fullLegalName}{" "}
                   - (SHAREHOLDER [NATURAL PERSONS])
                 </i>
               </Typography>
