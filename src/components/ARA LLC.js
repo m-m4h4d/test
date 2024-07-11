@@ -1,4 +1,5 @@
 import React from "react";
+import './App.css';
 import {
   Container,
   Box,
@@ -55,31 +56,6 @@ const data = {
   jurisdiction: "FREE ZONE",
   sourceOfFunds: "LOANS",
   shareHolders: [
-    {
-      idDoc: {
-        type: "ID",
-        issueCountry: "Albania",
-        number: "665+6565",
-        issueDate: "2024-12-31T00:00:00.000Z",
-        expiryDate: "2023-12-31T00:00:00.000Z",
-      },
-      contactInfo: {
-        contactType: "Telephone",
-        contactCountry: "Austria",
-        contactNumber: "2013565",
-      },
-      fullLegalName: "kjsdkjdfhk",
-      doB: "2024-12-31T00:00:00.000Z",
-      residentialStatus: "Non Resident",
-      occupation: "Occupation1",
-      dualNationality: "No",
-      percentShares: "22",
-      ubo: true,
-      uboReason: "SHARE HOLDING",
-      uboDate: "2024-07-01T00:00:00.000Z",
-      isAuthorizedSignatory: false,
-      _id: "668f95f4e8ed886eea89ada2",
-    },
     {
       idDoc: {
         type: "ID",
@@ -513,22 +489,20 @@ function App() {
               }}
             >
               <Typography variant="body2" sx={{ textAlign: "left" }}>
-                <b>
-                  <i>
-                    <span style={{ color: "maroon", fontSize: 18 }}>
-                      *Note :-&nbsp;
-                    </span>{" "}
-                    For legal customers, the system includes a profile with the
-                    shareholder who has the highest level of risk.
-                    <br />
-                    <span style={{ color: "maroon" }}>**</span>If De-Risked,
-                    Then De-Risk Parameter will be Club Risk Rating, Else If one
-                    or more individual risk scores is 4(Override) and Not
-                    Mitigated, the Club Risk Rating will be overridden to High
-                    Risk, Else Club Risk Rating is Calculated Based on Risk
-                    Score as per the set score range.
-                  </i>
-                </b>
+                <i>
+                  <span style={{ color: "maroon", fontSize: 18 }}>
+                    <b>*Note :-&nbsp;</b>
+                  </span>{" "}
+                  For legal customers, the system includes a profile with the
+                  shareholder who has the highest level of risk.
+                  <br />
+                  <span style={{ color: "maroon" }}><b>**</b></span>If De-Risked,
+                  Then De-Risk Parameter will be Club Risk Rating, Else If one
+                  or more individual risk scores is 4(Override) and Not
+                  Mitigated, the Club Risk Rating will be overridden to High
+                  Risk, Else Club Risk Rating is Calculated Based on Risk
+                  Score as per the set score range.
+                </i>
               </Typography>
               <Box sx={{ color: "darkblue", width: "300%", mt: 4 }}>
                 <Typography sx={{ mt: 2, textAlign: "right" }}>
@@ -548,6 +522,16 @@ function App() {
 
         <Divider>&nbsp; ***** END OF CUSTOMER ***** &nbsp;</Divider>
       </Box>
+
+      <footer>
+        <div className="footer">
+          <Divider />
+          <div className="footer-text">
+            <span className="pageNumber"></span>
+            <span className="totalPages"></span>
+          </div>
+        </div>
+      </footer>
     </Container>
   );
 }

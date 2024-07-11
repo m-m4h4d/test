@@ -1,0 +1,20 @@
+@media print {
+  footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer-text {
+    font-size: 12px;
+  }
+
+  .pageNumber:after {
+    content: counter(page);
+  }
+
+  .totalPages:after {
+    content: counter(pages);
+  }
+}

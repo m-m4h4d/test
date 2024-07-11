@@ -11,5 +11,8 @@
     "not opera <= 109",
     "not firefox <= 127",
     "not opera <= 110"
-  ]
+  ],
+  "hints": {
+    "compat-api/css": "off"
+  }
 }
