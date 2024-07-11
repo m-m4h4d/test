@@ -140,8 +140,8 @@ function App() {
   ];
 
   return (
-    <Container sx={{ pb: 10, mb: 10 }}>
-      <Box sx={{ my: 4, p: 2 }}>
+    <Container sx={{ my: 0, p: 0, width: '100%' }}>
+      <Box>
         <Typography variant="h4" align="left">
           <b>ARA JEWELLERY LLC</b>
         </Typography>
@@ -156,7 +156,7 @@ function App() {
         </Typography>
         <Divider sx={{ my: 1, border: "2px solid" }} />
 
-        <Paper elevation={10} sx={{ mb: 2, width: "75%", pr: 8 }}>
+        <Paper elevation={10} sx={{ mb: 1, width: "75%", pr: 8 }}>
           <Typography variant="h6">
             <b>
               <i>
@@ -169,11 +169,10 @@ function App() {
           </Typography>
         </Paper>
 
-        <Box sx={{ mt: 2, ml: 1 }}>
+        <Box sx={{ ml: 1 }}>
           <Paper
             elevation={10}
             sx={{
-              mb: 2,
               width: "60%",
               pr: 8,
               color: "darkblue",
@@ -186,7 +185,7 @@ function App() {
               </b>
             </Typography>
           </Paper>
-          <Box sx={{ p: 2, ml: 1 }}>
+          <Box sx={{ px: 2, py: 1, ml: 1 }}>
             <Paper
               elevation={10}
               sx={{
@@ -356,7 +355,7 @@ function App() {
           </Box>
         </Box>
 
-        <Box sx={{ my: 2, ml: 1 }}>
+        <Box sx={{ mt: 2, ml: 1 }}>
           <Paper
             elevation={10}
             sx={{
@@ -481,7 +480,7 @@ function App() {
             </Box>
             <Box
               sx={{
-                mt: 2,
+                mt: 1,
                 ml: 4,
                 background: "lightgrey",
                 display: "flex",
@@ -523,15 +522,13 @@ function App() {
         <Divider>&nbsp; ***** END OF CUSTOMER ***** &nbsp;</Divider>
       </Box>
 
-      <footer>
-        <div className="footer">
-          <Divider />
-          <div className="footer-text">
-            <span className="pageNumber"></span>
-            <span className="totalPages"></span>
-          </div>
+      <div className="footer">
+        <Divider />
+        <div className="footer-text">
+          <span className="pageNumber"></span>
+          <span className="totalPages"></span>
         </div>
-      </footer>
+      </div>
     </Container>
   );
 }
