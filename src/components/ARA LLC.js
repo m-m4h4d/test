@@ -11,6 +11,7 @@ import {
   TableBody,
   TableRow,
   TableHead,
+  tableCellClasses
 } from "@mui/material";
 
 const data = {
@@ -305,60 +306,76 @@ function App() {
               justifyContent="flex-end"
               sx={{ width: "100%" }}
             >
-              <Box sx={{ pt: 1 }}>
-                <Typography textAlign="right">
-                  (Total Sum of Risk (Customer + Relation) / Total No. of Risk){" "}
-                  <b>ONBOARDING RISK :&nbsp;</b>
-                </Typography>
-                <Typography textAlign="right">
-                  Mitigation Score :&nbsp;
-                </Typography>
-                <Typography textAlign="right">
-                  (Onboarding Risk * Mitigation Score){" "}
-                  <b>RESIDUAL RISK :&nbsp;</b>
-                </Typography>
-              </Box>
-              <Box width="20%" sx={{ mr: 1 }}>
-                <Divider
-                  sx={{
-                    mt: 1,
-                    border: "1px solid",
-                    borderColor: "blue",
-                    width: "100%",
-                  }}
-                />
-                <Typography textAlign="right">
-                  <b>1.706</b>
-                </Typography>
-                <Typography textAlign="right">
-                  <b>0</b>
-                </Typography>
-                <Divider
-                  sx={{
-                    border: "1px solid",
-                    borderColor: "blue",
-                    width: "100%",
-                  }}
-                />
-                <Typography textAlign="right">
-                  <b>1.706</b>
-                </Typography>
-                <Divider
-                  sx={{
-                    border: "1px solid",
-                    borderColor: "blue",
-                    width: "100%",
-                  }}
-                />
-                <Divider
-                  sx={{
-                    mt: 0.5,
-                    border: "1px solid",
-                    borderColor: "blue",
-                    width: "100%",
-                  }}
-                />
-              </Box>
+              <Table size="small" sx={{ [`& .${tableCellClasses.root}`]: { borderBottom: "none" } }}>
+                <TableRow sx={{ border: 'none' }}>
+                  <TableCell>
+                    <Typography textAlign="right">
+                      (Total Sum of Risk (Customer + Relation) / Total No. of Risk){" "}
+                      <b>ONBOARDING RISK :&nbsp;</b>
+                    </Typography>
+                  </TableCell>
+                  <TableCell>
+                    <Divider
+                      sx={{
+                        mt: 1,
+                        border: "1px solid",
+                        borderColor: "blue",
+                        width: "100%",
+                      }}
+                    />
+                    <Typography textAlign="right">
+                      <b>1.706</b>
+                    </Typography>
+                  </TableCell>
+                </TableRow>
+                <TableRow sx={{ border: 'none' }}>
+                  <TableCell>
+                    <Typography textAlign="right">
+                      Mitigation Score :&nbsp;
+                    </Typography>
+                  </TableCell>
+                  <TableCell>
+                    <Typography textAlign="right">
+                      <b>0</b>
+                    </Typography>
+                    <Divider
+                      sx={{
+                        border: "1px solid",
+                        borderColor: "blue",
+                        width: "100%",
+                      }}
+                    />
+                  </TableCell>
+                </TableRow>
+                <TableRow sx={{ border: 'none' }}>
+                  <TableCell>
+                    <Typography textAlign="right">
+                      (Onboarding Risk * Mitigation Score){" "}
+                      <b>RESIDUAL RISK :&nbsp;</b>
+                    </Typography>
+                  </TableCell>
+                  <TableCell>
+                    <Typography textAlign="right">
+                      <b>1.706</b>
+                    </Typography>
+                    <Divider
+                      sx={{
+                        border: "1px solid",
+                        borderColor: "blue",
+                        width: "100%",
+                      }}
+                    />
+                    <Divider
+                      sx={{
+                        mt: 0.5,
+                        border: "1px solid",
+                        borderColor: "blue",
+                        width: "100%",
+                      }}
+                    />
+                  </TableCell>
+                </TableRow>
+              </Table>
             </Box>
           </Box>
         </Box>
@@ -409,39 +426,43 @@ function App() {
               justifyContent="flex-end"
               sx={{ width: "100%" }}
             >
-              <Box sx={{ pt: 1 }}>
-                <Typography textAlign="right">
-                  (Sum of Distributed Risk) <b>OVERALL RISK :&nbsp;</b>
-                </Typography>
-              </Box>
-              <Box width="20%" sx={{ mr: 1 }}>
-                <Divider
-                  sx={{
-                    mt: 1,
-                    border: "1px solid",
-                    borderColor: "blue",
-                    width: "100%",
-                  }}
-                />
-                <Typography textAlign="right">
-                  <b>{info[0].risk}</b>
-                </Typography>
-                <Divider
-                  sx={{
-                    border: "1px solid",
-                    borderColor: "blue",
-                    width: "100%",
-                  }}
-                />
-                <Divider
-                  sx={{
-                    mt: 0.5,
-                    border: "1px solid",
-                    borderColor: "blue",
-                    width: "100%",
-                  }}
-                />
-              </Box>
+              <Table size="small" sx={{ [`& .${tableCellClasses.root}`]: { borderBottom: "none" } }}>
+                <TableRow sx={{ border: 'none' }}>
+                  <TableCell>
+                    <Typography textAlign="right">
+                      (Sum of Distributed Risk) <b>OVERALL RISK :&nbsp;</b>
+                    </Typography>
+                  </TableCell>
+                  <TableCell>
+                    <Divider
+                      sx={{
+                        mt: 1,
+                        border: "1px solid",
+                        borderColor: "blue",
+                        width: "100%",
+                      }}
+                    />
+                    <Typography textAlign="right">
+                      <b>{info[0].risk}</b>
+                    </Typography>
+                    <Divider
+                      sx={{
+                        border: "1px solid",
+                        borderColor: "blue",
+                        width: "100%",
+                      }}
+                    />
+                    <Divider
+                      sx={{
+                        mt: 0.5,
+                        border: "1px solid",
+                        borderColor: "blue",
+                        width: "100%",
+                      }}
+                    />
+                  </TableCell>
+                </TableRow>
+              </Table>
             </Box>
           </Box>
           <Box
