@@ -140,9 +140,9 @@ function App() {
   ];
 
   return (
-    <Container sx={{ my: 0, p: 0, width: '100%' }}>
+    <Container sx={{ m: 0, p: 0, width: '100%' }}>
       <Box>
-        <Typography variant="h4" align="left">
+        <Typography variant="h6" align="left">
           <b>ARA JEWELLERY LLC</b>
         </Typography>
         <Typography variant="body2" align="left">
@@ -154,10 +154,10 @@ function App() {
         <Typography variant="body2" align="left">
           arajewellltd@gmail.com
         </Typography>
-        <Divider sx={{ my: 1, border: "2px solid" }} />
+        <Divider sx={{ my: 1, border: "1px solid" }} />
 
-        <Paper elevation={10} sx={{ mb: 1, width: "75%", pr: 8 }}>
-          <Typography variant="h6">
+        <Paper elevation={10} sx={{ mb: 1, width: "100%", pr: 8 }}>
+          <Typography variant="body2">
             <b>
               <i>
                 CUSTOMER DETAILS ={">"} UID : {user.customer.uid} | NAME :{" "}
@@ -173,37 +173,35 @@ function App() {
           <Paper
             elevation={10}
             sx={{
-              width: "60%",
+              width: "90%",
               pr: 8,
               color: "darkblue",
               background: "lightgrey",
             }}
           >
-            <Typography>
-              <b>
-                <i>CUSTOMER RESIDUAL RISK</i>
-              </b>
+            <Typography variant="body2">
+              <i>CUSTOMER RESIDUAL RISK</i>
             </Typography>
           </Paper>
-          <Box sx={{ px: 2, py: 1, ml: 1 }}>
+          <Box sx={{ px: 2, py: 0.5, ml: 1 }}>
             <Paper
               elevation={10}
               sx={{
-                mb: 2,
-                width: "55%",
+                mb: 1,
+                width: "80%",
                 pr: 8,
                 color: "darkblue",
                 background: "lightgrey",
               }}
             >
-              <Typography>
+              <Typography variant="body2">
                 <i>
                   CUSTOMER --{">"} {data.fullLegalName} - (CUSTOMER)
                 </i>
               </Typography>
             </Paper>
             <TableContainer>
-              <Table size="small">
+              <Table size="small" sx={{ [`& .${tableCellClasses.root}`]: { p: 0 } }}>
                 <TableHead>
                   <TableRow sx={{ background: "rgb(240, 240, 240)" }}>
                     <TableCell>RBA TYPE</TableCell>
@@ -233,21 +231,21 @@ function App() {
                 <Paper
                   elevation={10}
                   sx={{
-                    my: 2,
-                    width: "55%",
+                    my: 1,
+                    width: "80%",
                     pr: 8,
                     color: "darkblue",
                     background: "lightgrey",
                   }}
                 >
-                  <Typography>
+                  <Typography variant="body2">
                     <i>
                       SHAREHOLDER [NATURAL PERSONS] --{">"} {rows.shareholder[0].name}{" "} - (SHAREHOLDER [NATURAL PERSONS])
                     </i>
                   </Typography>
                 </Paper>
                 <TableContainer>
-                  <Table size="small">
+                  <Table size="small" sx={{ [`& .${tableCellClasses.root}`]: { p: 0 } }}>
                     <TableHead>
                       <TableRow sx={{ background: "rgb(240, 240, 240)" }}>
                         <TableCell>RBA TYPE</TableCell>
@@ -281,7 +279,7 @@ function App() {
               justifyContent="flex-end"
               sx={{ width: "100%" }}
             >
-              <Table size="small" sx={{ [`& .${tableCellClasses.root}`]: { borderBottom: "none" } }}>
+              <Table size="small" sx={{ [`& .${tableCellClasses.root}`]: { borderBottom: "none", p: 0 } }}>
                 <TableRow sx={{ border: 'none' }}>
                   <TableCell>
                     <Typography textAlign="right">
@@ -355,26 +353,26 @@ function App() {
           </Box>
         </Box>
 
-        <Box sx={{ mt: 2, ml: 1 }}>
+        <Box sx={{ mt: 1, ml: 1 }}>
           <Paper
             elevation={10}
             sx={{
-              mb: 2,
+              mb: 1,
               width: "60%",
               pr: 8,
               color: "darkblue",
               background: "lightgrey",
             }}
           >
-            <Typography>
+            <Typography variant="body2">
               <b>
                 <i>RISK DISTRIBUTION</i>
               </b>
             </Typography>
           </Paper>
-          <Box sx={{ p: 2, ml: 1 }}>
+          <Box sx={{ px: 2, ml: 1 }}>
             <TableContainer>
-              <Table size="small">
+              <Table size="small" sx={{ [`& .${tableCellClasses.root}`]: { p: 0 } }}>
                 <TableHead>
                   <TableRow sx={{ background: "rgb(240, 240, 240)" }}>
                     <TableCell>RBA TYPE</TableCell>
@@ -401,7 +399,7 @@ function App() {
               justifyContent="flex-end"
               sx={{ width: "100%" }}
             >
-              <Table size="small" sx={{ [`& .${tableCellClasses.root}`]: { borderBottom: "none" } }}>
+              <Table size="small" sx={{ [`& .${tableCellClasses.root}`]: { borderBottom: "none", p: 0 } }}>
                 <TableRow sx={{ border: 'none' }}>
                   <TableCell>
                     <Typography textAlign="right">
@@ -447,35 +445,33 @@ function App() {
               justifyContent: "space-between",
             }}
           >
-            <Box
-              sx={{ mt: 2, background: "lightgrey", width: "100%", px: 0.5 }}
-            >
-              <Typography>
+            <Box sx={{ mt: 1, background: "lightgrey", width: "100%", px: 0.5 }}>
+              <Typography variant="body2">
                 <b>RISK METHODOLOGY</b>
               </Typography>
               <Typography
                 variant="body2"
                 sx={{ color: "white", background: "red" }}
               >
-                <pre>High Risk | MORE THAN 3.1</pre>
+                High Risk | MORE THAN 3.1
               </Typography>
               <Typography
                 variant="body2"
                 sx={{ color: "white", background: "darkviolet" }}
               >
-                <pre>Medium High Risk | 2.1 {"<"}= 3.1</pre>
+                Medium High Risk | 2.1 {"<"}= 3.1
               </Typography>
               <Typography
                 variant="body2"
                 sx={{ color: "white", background: "olive" }}
               >
-                <pre>Medium Risk | 1.1 {"<"}= 2.1</pre>
+                Medium Risk | 1.1 {"<"}= 2.1
               </Typography>
               <Typography
                 variant="body2"
                 sx={{ color: "white", background: "darkgreen" }}
               >
-                <pre>Low Risk | {"<"}= 1.1</pre>
+                Low Risk | {"<"}= 1.1
               </Typography>
             </Box>
             <Box
@@ -489,12 +485,11 @@ function App() {
             >
               <Typography variant="body2" sx={{ textAlign: "left" }}>
                 <i>
-                  <span style={{ color: "maroon", fontSize: 18 }}>
+                  <span style={{ color: "maroon" }}>
                     <b>*Note :-&nbsp;</b>
                   </span>{" "}
                   For legal customers, the system includes a profile with the
                   shareholder who has the highest level of risk.
-                  <br />
                   <span style={{ color: "maroon" }}><b>**</b></span>If De-Risked,
                   Then De-Risk Parameter will be Club Risk Rating, Else If one
                   or more individual risk scores is 4(Override) and Not
@@ -503,27 +498,20 @@ function App() {
                   Score as per the set score range.
                 </i>
               </Typography>
-              <Box sx={{ color: "darkblue", width: "300%", mt: 4 }}>
-                <Typography sx={{ mt: 2, textAlign: "right" }}>
-                  <pre>
-                    CUSTOMER PROFILE RISK: <b>{info[0].risk}</b>
-                  </pre>
+              <Box sx={{ color: "darkblue", width: "300%", mt: 2 }}>
+                <Typography variant="body2" sx={{ mt: 1, textAlign: "right" }}>
+                  CUSTOMER PROFILE RISK: <b>{info[0].risk}</b>
                 </Typography>
-                <Typography sx={{ mt: 2, textAlign: "right" }}>
-                  <pre>
-                    CLUB RISK RATING: <b>MEDIUM RISK</b>
-                  </pre>
+                <Typography variant="body2" sx={{ mt: 1, textAlign: "right" }}>
+                  CLUB RISK RATING: <b>MEDIUM RISK</b>
                 </Typography>
               </Box>
             </Box>
           </Box>
         </Box>
-
         <Divider>&nbsp; ***** END OF CUSTOMER ***** &nbsp;</Divider>
       </Box>
-
       <div className="footer">
-        <Divider />
         <div className="footer-text">
           <span className="pageNumber"></span>
           <span className="totalPages"></span>
