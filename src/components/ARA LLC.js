@@ -37,7 +37,7 @@ const data = {
     iban: "IBAN no",
     bicSwift: "BIC/Swift",
     currency: "usd",
-    yearOfRelationship: "2109",
+    yearOfRelationship: "2019",
     branch: "Islamabad",
     annualBusiness: "200000",
     totalShareCapital: "100000",
@@ -94,16 +94,16 @@ function createData(field, risk) {
 
 const rows = {
   customer: {
-    name: "ASHIRWAD JEWELLERY TRADING L.L.C",
-    legal_Name_Sanction: createData(data.fullLegalName, 1), //data.fullLegalName
-    country_Of_Incorporation: createData(data.TradeLicenseInfo.countryOfIncorporation, 2), //data.TradeLicenseInfo.countryofIncorporation
-    operation_Countries: createData("UNITED ARAB EMIRATES", 2), //NA
-    countries_Source_Of_Funds: createData("UNITED ARAB EMIRATES", 2), //na
-    business_Activity: createData("NON-MANUFACTURED PRECIOUS METAL TRADING, PEARLS AND PRECIOUS STONE", 3), //data.TradeLicenseInfo.businessActivity
-    source_Of_Funds: createData("Business Proceeds", 2),
-    license_Type: createData("COMMERCIAL License", 1),
-    customer_Type: createData("LEGAL ENTITIES", 1),
-    license_Category: createData("LLC", 2),
+    name: data.fullLegalName,
+    legal_Name_Sanction: createData(data.fullLegalName, 1),
+    country_Of_Incorporation: createData(data.TradeLicenseInfo.countryOfIncorporation, 2),
+    country_Of_Residence: createData(data.contactInfo.contactCountry, 2),
+    business_Address: createData(data.businessAddress, 2),
+    business_Activity: createData(data.TradeLicenseInfo.businessActivity, 3),
+    source_Of_Funds: createData(data.sourceOfFunds, 2),
+    licensing_Authority: createData(data.TradeLicenseInfo.licensingAuthority, 1),
+    customer_Type: createData(data.riskProfile, 1),
+    trade_License_No: createData(data.TradeLicenseInfo.tradeLicenseNo, 2),
     jurisdiction: createData(data.jurisdiction, 1),
   },
   shareholder: {
@@ -121,10 +121,10 @@ const rows = {
 function App() {
   const user = {
     customer: {
-      uid: 1330000081,
-      name: "ASHIRWAD JEWELLERY TRADING L.L.C", //data.
-      dateOfIncorporation: "2021-12-27",
-      countryOfIncorporation: "UNITED ARAB EMIRATES",
+      uid: data._id,
+      name: data.fullLegalName,
+      dateOfIncorporation: data.TradeLicenseInfo.incorporationDate,
+      countryOfIncorporation: data.TradeLicenseInfo.countryOfIncorporation,
     },
   };
 
@@ -239,8 +239,7 @@ function App() {
             >
               <Typography>
                 <i>
-                  SHAREHOLDER [NATURAL PERSONS] --{">"} {data.shareHolders.fullLegalName}{" "}
-                  - (SHAREHOLDER [NATURAL PERSONS])
+                  SHAREHOLDER [NATURAL PERSONS] --{">"} {data.shareHolders.fullLegalName}{" "} - (SHAREHOLDER [NATURAL PERSONS])
                 </i>
               </Typography>
             </Paper>
